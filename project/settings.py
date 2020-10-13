@@ -125,5 +125,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    '/var/www/static/',
+    # '/var/www/static/',
+    # 'C:\Users\jeddou\Desktop\Django\LivePr\ArabicBlog\src\static',
 ]
