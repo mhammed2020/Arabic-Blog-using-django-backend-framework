@@ -8,10 +8,20 @@
     <meta charset="utf-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    
+    {% if title %}
+        <title> {{title}} </title>
+        {% else %}
+        <title> مدونة </title>
+    {% endif %}
+        
+
+    <title>المدونة</title>
+
     <link rel="stylesheet" href=" {% static 'blog/css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href=" {% static 'blog/css/main.css' %}" >
-    <link rel="shortcut icon" href="{% static 'blog/img/favicon.ico' %}"
-
+    <link rel="shortcut icon" href="{% static 'blog/img/favicon.ico' %}" >
+    
 </head>
 <body>
 
@@ -25,8 +35,9 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
+
             <li class="nav-item active">
-              <a class="nav-link" href="#">
+              <a class="nav-link" href="{% url 'home' %}">
                 
                 <img src="{% static 'blog/img/mim-logo.png' %}" alt="شعار المجونة " width="30px">
                 
@@ -46,7 +57,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">من انا ؟</a>
+                <a class="nav-link" href="{% url 'about'  %}">من انا ؟</a>
               </li>
            
           </ul>
