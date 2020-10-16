@@ -32,4 +32,22 @@ text-align: right;
     background-color: #CCC !important;
 }
 
- 
+ /* Start Sidebar */
+.latest-post{
+    padding: 0 15px;
+    
+}
+.latest-post .latest-post-item{
+    padding: 6px;
+}
+
+.latest-post li:first-child {
+    border-top: 0;
+}
+
+.latest-post li:last-child{
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* End Sidebar */

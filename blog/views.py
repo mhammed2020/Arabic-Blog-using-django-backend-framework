@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 from . models import Post
 
@@ -15,3 +15,14 @@ def home(request) :
 def about(request) :
 
     return render(request,'blog/about.html', {'title' : 'من انا'})
+
+
+def post_detail(request,post_id) :
+
+    post = get_object_or_404(Post,pk=post_id)
+
+    context ={
+        'title':post,
+        'post' : post
+    }
+    return render(request,'blog/detail.html', context)
