@@ -3,5 +3,15 @@
 
      
 {% block content %}
-      <h1> منطقة التدويات     </h1>
+
+      {% for post in posts %}
+      <div class="post p-3 mb-4">
+
+<!-- <img class="img-fluid" width="70px" src="" alt="صورة الناشر "> -->
+<span> {{post.post_date}}</span>
+            <h3> <a href=""> {{post.title}} </a></h3>
+            <p>{{post.content}}</p>
+
+        </div>
+      {% endfor %}
 {% endblock content %}

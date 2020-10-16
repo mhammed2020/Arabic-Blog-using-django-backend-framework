@@ -13,7 +13,6 @@ html,body {
     text-align: right;
 }
 
-
 body{
 
     font-family: 'Tajawal' , sans-serif;
@@ -31,4 +30,10 @@ text-align: right;
 .bg-light {
 
     background-color: #CCC !important;
+}
+
+ 
+.post {
+
+    border: solid #CCC !important;
 }
