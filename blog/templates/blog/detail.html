@@ -33,4 +33,16 @@
 
             {% endfor %}
 
+            <!-- create form for comment  -->
+
+            <h3 class="border-bottom pb-3 mb-3 mt-5"> اضافة تعليق جدبد  </h3>
+
+            <form action="POST">
+              {% csrf_token %}
+              {{comment_form.as_p}}
+
+              <input class="btn btn-secondary mb-4" type="submit" value="نشر التعليق ">
+            </form>
+            
+
 {% endblock content %}
