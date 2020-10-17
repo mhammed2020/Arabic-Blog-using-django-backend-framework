@@ -1,8 +1,8 @@
 {% extends 'blog/base.html' %}
 
 
-     
 {% block content %}
+{% load crispy_forms_tags %}
 
       <div class="border p-3 mb-3">
 
@@ -37,12 +37,15 @@
 
             <h3 class="border-bottom pb-3 mb-3 mt-5"> اضافة تعليق جدبد  </h3>
 
+            <div class="border p-4 mb-5 mt-4 ">
+
             <form action="POST">
               {% csrf_token %}
-              {{comment_form.as_p}}
+              {{comment_form | crispy}}
 
-              <input class="btn btn-secondary mb-4" type="submit" value="نشر التعليق ">
+              <input class="btn btn-secondary" type="submit" value="نشر التعليق ">
             </form>
             
+        </div>
 
 {% endblock content %}

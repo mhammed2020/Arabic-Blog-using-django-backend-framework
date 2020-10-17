@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-    'blog'
+    'blog',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,5 @@ STATIC_URL = '/static/'
 #     # '/var/www/static/',
 #     # 'C:\Users\jeddou\Desktop\Django\LivePr\ArabicBlog\src\static',
 # ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
