@@ -1,5 +1,7 @@
 
 {% load static  %}
+
+{% load post_tag %}
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -96,7 +98,8 @@
     <h3 class="text-center bg-secondary text-light p-2" > اخر التدوينات  </h3>
 
 
-    {% include "blog/latest_posts.html" %}
+    <!-- {% include "blog/latest_posts.html" %} -->
+    {% latest_posts %}
 
 
 
