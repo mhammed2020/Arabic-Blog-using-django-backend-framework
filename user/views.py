@@ -64,3 +64,12 @@ def logout_user(request):
          
     })
 
+    # create profile for Users
+
+
+def profile(request):
+    return render(request,'user/profile.html',{
+
+        'title': 'الملف الشخصي ' ,
+
+    })
