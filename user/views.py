@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import UserCreationForm, LoginForm
 from django.contrib import messages
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 def register(request) :
 
 
@@ -51,4 +51,16 @@ def login_user(request) :
         'title' :'تسجيل الدخول',
         'form':form,
         })
+
+# logout function
+
+def logout_user(request):
+    logout(request)
+
+    return render(request,'user/logout.html',
+    
+    {
+        'title' : 'تسجيل الخروج'
+         
+    })
 
