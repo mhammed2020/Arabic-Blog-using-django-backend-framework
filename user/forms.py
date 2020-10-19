@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 
 class UserCreationForm(forms.ModelForm) :
-    username = forms.CharField(label = 'اسم المستخدم', max_length=50)
+    username = forms.CharField(label = 'اسم المستخدم', max_length=50
+    , help_text='اسم المستخدم يجب ألا يحتوي على مسافات.')
     email = forms.EmailField(label = ' البريد الالكتروني ')
     first_name = forms.CharField(label = 'الاسم الاول ', max_length=50)
     last_name = forms.CharField(label = 'الاسم الاخير ', max_length=50)
