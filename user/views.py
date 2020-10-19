@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
-from .forms import UserCreationForm
+from .forms import UserCreationForm, LoginForm
 from django.contrib import messages
 
+from django.contrib.auth import authenticate, login
 def register(request) :
 
 
@@ -17,8 +18,37 @@ def register(request) :
     else :
         form = UserCreationForm()
 
-    return render(request,'user/register.html', {
+    return render(request,'user/register.html', { 
    'title' : 'التسجيل ',
    'form' :form
 
     })
+
+    # login form  user app
+
+def login_user(request) :
+
+    if request.method=='POST':
+        form = LoginForm()
+        # catch inputs 
+        username = request.POST['username']
+        password = request.POST['password']
+        # authenticate function
+        user = authenticate(request,username=username, password =password)
+
+        if user is not None:
+            login(request,user)
+            return redirect('home')
+
+        else :
+            messages.warning(
+                request,' هناك خطأ في اسم المستخدم أو كلمة المرور ')
+
+    else :
+        form = LoginForm()
+    
+    return render(request,'user/login.html',{
+        'title' :'تسجيل الدخول',
+        'form':form,
+        })
+
