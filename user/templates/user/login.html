@@ -4,7 +4,12 @@
 {% block content %}
 
 
-{% if messages %}
+
+
+            <div class="border p-4 mb-5 ">
+                <legend class="border-bottom pb-1 mb-3"> تسجيل الدخول   </legend>
+
+                {% if messages %}
 {% for message in messages  %}
   
 
@@ -16,13 +21,20 @@
 
 {% endif %}
 
-{% load crispy_forms_tags %}
-            <div class="border p-4 mb-5 ">
-                <legend class="border-bottom pb-1 mb-3"> تسجيل الدخول   </legend>
 
             <form method="POST">
               {% csrf_token %}
-              {{form | crispy}}
+
+              <div class="form-groupe">
+                <label for="username"> اسم المستخدم  </label>
+                <input class="form-control" type="text" name ="username" id="username" placeholder="قم بكتابة اسم المستخدم">
+              </div>
+
+              <div class="form-groupe">
+                <label for="password"> كلمة المرور  </label>
+                <input class="form-control" type="password" name ="password" id="password" placeholder=" كلمة المرور  ">
+              </div>
+
 
               <input class="btn btn-secondary mt-4" type="submit" value=" تسجيل الدخول  ">
             </form>
