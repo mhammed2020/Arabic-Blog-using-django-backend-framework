@@ -23,9 +23,9 @@
 
    <div class="col-md-9">
 
-    <h2 class="mb-4">اسم المستخدم</h2>
-    <p class="font-weight-bold">الاسم: <span class="font-weight-normal">جدو امحمد </span></p>
-    <p class="font-weight-bold">البريد الإلكتروني: <span class="font-weight-normal">dgmn@email.ma</span></p>
+    <h2 class="mb-4">{{user.username}} </h2>
+    <p class="font-weight-bold">الاسم: <span class="font-weight-normal"> {{user.first_name}}  {{user.last_name}} </span></p>
+    <p class="font-weight-bold"> البريد الإلكتروني <span class="font-weight-normal">{{user.email}}</span></p>
 
    </div>
         </div>
@@ -37,7 +37,7 @@
         عدد التدوينات التي دونتها
     </h3>
     <h4 class="bg-secondary text-center p-4 text-light">
-  25
+  {{posts.count}}
     </h4>
 
     <h3 class="border-bottom mb-4 pb-3 mt-5">تدويناتي</h3>
