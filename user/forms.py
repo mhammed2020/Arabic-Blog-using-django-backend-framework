@@ -24,7 +24,7 @@ class UserCreationForm(forms.ModelForm) :
         cd = self.cleaned_data
         if cd['password1'] != cd['password2'] :
             raise forms.ValidationError(' كلمة المرور غير متطابقة  ')
-        return cd['passord2']
+        return cd['password2']
 
     def clean_username(self) :
 
