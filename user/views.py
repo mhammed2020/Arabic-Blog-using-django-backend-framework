@@ -29,7 +29,7 @@ def register(request) :
 def login_user(request) :
 
     if request.method=='POST':
-        form = LoginForm()
+        # form = LoginForm() changed with html form
         # catch inputs 
         username = request.POST['username']
         password = request.POST['password']
@@ -44,12 +44,12 @@ def login_user(request) :
             messages.warning(
                 request,' هناك خطأ في اسم المستخدم أو كلمة المرور ')
 
-    else :
-        form = LoginForm()
+    # else :
+    #     form = LoginForm() changed with html form
     
     return render(request,'user/login.html',{
         'title' :'تسجيل الدخول',
-        'form':form,
+        # 'form':form, 
         })
 
 # logout function
