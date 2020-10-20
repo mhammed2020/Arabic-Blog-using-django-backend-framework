@@ -5,8 +5,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
 
 from blog.models import Post
-def register(request) :
 
+from django.contrib.auth.decorators import login_required
+def register(request) :
 
     if request.method=='POST':
         form = UserCreationForm(request.POST)
@@ -18,7 +19,7 @@ def register(request) :
             messages.success(
                 request,' تهانينا {}  لقد تمت عملية التسجيل بنجاح  '.format(new_user)
             )
-            return redirect('home')
+            return redirect('login')
     else :
         form = UserCreationForm()
 
@@ -42,7 +43,7 @@ def login_user(request) :
 
         if user is not None:
             login(request,user)
-            return redirect('home')
+            return redirect('profile')
 
         else :
             messages.warning(
@@ -71,6 +72,7 @@ def logout_user(request):
     # create profile for Users
 
 
+@login_required(login_url='login')
 def profile(request):
     # call Post with filter
     posts = Post.objects.filter(author = request.user)
