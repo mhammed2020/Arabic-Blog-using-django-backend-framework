@@ -13,6 +13,15 @@ class Profile(models.Model):
         return '{} profile.'.format(self.user.username)
 
     
+    def save(self) :
+        super().save()
+        img = Image.open(self.image.path)
+        if img.width > 300 or img.height >300 :
+            output_size = 300,300
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
+
 
 def create_profile(sender, **kwarg) :
     if kwarg['created'] :
