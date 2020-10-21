@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
 
 from blog.models import Post
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from django.contrib.auth.decorators import login_required
 def register(request) :
@@ -76,9 +77,24 @@ def logout_user(request):
 def profile(request):
     # call Post with filter
     posts = Post.objects.filter(author = request.user)
+    post_list = Post.objects.filter(author = request.user)
+
+    paginator = Paginator(post_list,6)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.page(paginator.num_page)
+
+
+
     return render(request,'user/profile.html',{
 
         'title': 'الملف الشخصي ' ,
-        'posts' : posts
+        'posts' : posts,
+        'page':page,
+        'post_list':post_list
 
     })
