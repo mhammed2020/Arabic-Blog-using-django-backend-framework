@@ -58,7 +58,10 @@ text-align: right;
     border: 1px dashed #CCC;
 }
 /* End Comment */
-
 .btn-editing{
-    float: left ;
+    float: left;
+}
+
+.back-btn{
+    float: left;
 }
