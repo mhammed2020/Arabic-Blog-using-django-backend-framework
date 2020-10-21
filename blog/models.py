@@ -24,7 +24,7 @@ class Comment(models.Model):
     body = models.TextField(verbose_name =' التعليق ')
 
     comment_date = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
 
     post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
     
