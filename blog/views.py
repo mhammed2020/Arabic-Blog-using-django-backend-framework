@@ -2,10 +2,16 @@ from django.shortcuts import render,get_object_or_404
 
 from . models import Post,Comment
 
-from .forms import NewComment
+from .forms import NewComment, PostCreateForm
 # Create your views here.
+#CBVs style with  for create posts
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+
 #pagination 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+#=======================================================================
 def home(request) :
     posts = Post.objects.all()
     paginator = Paginator(posts,4)
@@ -55,3 +61,16 @@ def post_detail(request,post_id) :
 
    
     return render(request,'blog/detail.html', context)
+
+#CBVs .. Usage 
+
+class PostCreateView(LoginRequiredMixin,CreateView):
+    model = Post
+    # fields = ['title', 'content']
+    template_name = 'blog/new_post.html'
+
+    form_class = PostCreateForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
