@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .forms import UserCreationForm, LoginForm
+from .forms import UserCreationForm, LoginForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib import messages
 
 from django.contrib.auth import authenticate, login,logout
@@ -98,3 +98,18 @@ def profile(request):
         'post_list':post_list
 
     })
+
+# updae profile /user in views.py
+
+def profile_update(request):
+    user_form = UserUpdateForm(instance = request.user)
+    profile_form = ProfileUpdateForm(instance = request.user.profile)
+
+    context = {
+        'title' :'تعديل الملف الشخصي',
+        'user_form':user_form,
+        'profile_form':profile_form
+    }
+
+    return render(request,'user/profile_update.html',context)
+

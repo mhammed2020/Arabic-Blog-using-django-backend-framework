@@ -2,7 +2,7 @@ from django  import forms
 
 from django.contrib.auth.models import User
 
-
+from .models import Profile
 class UserCreationForm(forms.ModelForm) :
     username = forms.CharField(label = 'اسم المستخدم', max_length=50
     , help_text='اسم المستخدم يجب ألا يحتوي على مسافات.')
@@ -41,4 +41,26 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('username','password',)
+
+# update profile /user with UserUpdateForm
+
+class UserUpdateForm(forms.ModelForm):
+    first_name = forms.CharField(label = 'الاسم الاول ', max_length=50)
+    last_name = forms.CharField(label = 'الاسم الاخير ', max_length=50)
+    email = forms.EmailField(label = ' البريد الالكتروني ')
+
+
+    class Meta:
+        model = User
+        fields = ('first_name','last_name','email')
+
+class ProfileUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('image',)
+
+
+
+
 
