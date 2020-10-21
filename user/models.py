@@ -13,8 +13,8 @@ class Profile(models.Model):
         return '{} profile.'.format(self.user.username)
 
     
-    def save(self) :
-        super().save()
+    def save(self,*args,**kwargs) :
+        super().save(*args,**kwargs)
         img = Image.open(self.image.path)
         if img.width > 300 or img.height >300 :
             output_size = 300,300
