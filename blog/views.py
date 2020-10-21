@@ -8,7 +8,7 @@ from .forms import NewComment
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 def home(request) :
     posts = Post.objects.all()
-    paginator = Paginator(posts,5)
+    paginator = Paginator(posts,4)
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
