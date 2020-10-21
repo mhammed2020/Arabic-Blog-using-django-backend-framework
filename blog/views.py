@@ -19,7 +19,8 @@ def home(request) :
 
     context = {
         'title' : 'الصفحة الرئيسية ',
-        'posts' : posts
+        'posts' : posts,
+        'page':page
     }
     return render(request,'blog/index.html',context)
 
