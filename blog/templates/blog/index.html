@@ -35,5 +35,10 @@
 </div>
       {% endfor %}
 
+{% if posts.count > 1 %}
+      
+      
       {% include "blog/pagination.html" with page=posts %}
+      {% endif %}
+
 {% endblock content %}
